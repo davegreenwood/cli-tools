@@ -45,3 +45,25 @@ Now you can generate a QR code with:
 ```shell
 qr "Your data here" "qr.png"
 ```
+
+## Wake on LAN
+
+```shell
+docker run --rm \
+    -P \
+    -it --net=host \
+    dgrnwd/cli-tools:latest \
+    python /app/wol.py 14:9d:99:7c:5b:b5
+```
+
+Make an alias in your `.bashrc` or `.zshrc`:
+
+```shell
+alias wol='docker run --rm -P -it --net=host dgrnwd/cli-tools:latest python /app/wol.py'
+```
+
+Now wake up a machine with:
+
+```shell
+wol 14:9d:99:7c:5b:b5
+```
