@@ -1,8 +1,21 @@
-*
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+build/
+dist/
 
-!.gitignore
-!*.txt
-!*.md
-!*.py
+# Virtual environments
+.venv/
+venv/
+env/
 
-!Dockerfile
+# OS files
+.DS_Store
+Thumbs.db
+
+# uv
+uv.lock

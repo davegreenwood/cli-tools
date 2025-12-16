@@ -2,10 +2,14 @@ FROM --platform=$BUILDPLATFORM python:3.12-slim
 
 WORKDIR /app
 
-COPY requirements.txt ./
+# Install uv
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /usr/local/bin/
 
-RUN pip install --no-cache-dir --upgrade pip \
-    && pip install --no-cache-dir -r requirements.txt
+# Copy project files
+COPY pyproject.toml ./
+
+# Install dependencies using uv
+RUN uv pip install --system -r pyproject.toml
 
 COPY *.py ./
 

@@ -1,8 +1,35 @@
 # Python CLI tools
 
-A docker image with some python CLI tools.
+A collection of Python CLI tools managed with [uv](https://github.com/astral-sh/uv).
 
-## Building the image
+## Prerequisites
+
+- [uv](https://docs.astral.sh/uv/getting-started/installation/) - Fast Python package manager
+- Python 3.12 or later
+
+## Development Setup
+
+1. Clone the repository:
+```shell
+git clone <repository-url>
+cd cli-tools
+```
+
+2. Install dependencies with uv:
+```shell
+uv sync
+```
+
+3. Activate the virtual environment:
+```shell
+source .venv/bin/activate
+```
+
+## Docker Usage
+
+The project uses uv for faster dependency management in Docker containers.
+
+### Building the image
 
 1. Create a new builder instance:
 
@@ -22,7 +49,9 @@ docker buildx build --platform linux/amd64,linux/arm64 -t dgrnwd/cli-tools:lates
 docker run -it dgrnwd/cli-tools:latest
 ```
 
-## QR code generator
+## Tools
+
+### QR code generator
 
 Generate a QR code from a string, and save it to a file.
 
@@ -46,7 +75,7 @@ Now you can generate a QR code with:
 qr "Your data here" "qr.png"
 ```
 
-## Wake on LAN
+### Wake on LAN
 
 ```shell
 docker run --rm \
@@ -66,4 +95,3 @@ Now wake up a machine with:
 
 ```shell
 wol 14:9d:99:7c:5b:b5
-```
