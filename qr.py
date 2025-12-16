@@ -1,6 +1,7 @@
 import qrcode
 import typer
 
+
 app = typer.Typer()
 
 
