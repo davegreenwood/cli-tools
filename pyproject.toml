@@ -1,0 +1,27 @@
+[project]
+name = "cli-tools"
+version = "0.1.0"
+description = "Python CLI tools"
+authors = [
+    {name = "Dave Greenwood", email = "dgrnwd@example.com"}
+]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.12"
+dependencies = [
+    "pillow",
+    "qrcode",
+    "typer"
+]
+
+[dependency-groups]
+dev = [
+    "ruff",
+    "pytest"
+]
+
+[tool.uv]
+dev-dependencies = [
+    "ruff",
+    "pytest"
+]
